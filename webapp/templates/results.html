@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}<h3>Your movie review:</h3>
+<div><pre>{{content}}</pre></div>
+
+<h3>Prediction</h3>
+<div>This movie review is <strong>{{prediction}}</strong>
+(probability: {{probability}}).</div>
+<p><p>
+<div class='button'>
+<form action='/feedback' method="post">
+<input type=submit value='Correct' name='feedback_button' class="btn btn-success">
+<input type=submit value='Incorrect' name='feedback_button' class="btn btn-danger">
+<input type=hidden value='{{prediction}}' name='prediction'>
+<input type=hidden value='{{content}}' name='review'>
+</form>
+<p><p>
+<div class='button'>
+<form action='/'>
+<input type=submit value='Submit another review' class="btn btn-primary">
+</form>
+</div>
+</div>
+{% endblock %}
