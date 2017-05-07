@@ -1,0 +1,6 @@
+ On PythonAnywhere running virtual env for OpenCV 3
+ https://help.pythonanywhere.com/pages/Virtualenvs/
+
+ mkvirtualenv ml-virtenv --python=/usr/bin/python3.5
+ deactivate
+ workon ml-virtenv
