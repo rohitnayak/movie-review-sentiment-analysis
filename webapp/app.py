@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, send_file
 from wtforms import Form, TextAreaField, validators
+from werkzeug.utils import safe_join
 import pickle, sqlite3, os, numpy as np
 from vectorizer import vect
 import uuid, json
@@ -120,7 +121,7 @@ def recognize_submit():
 
 @app.route('/jpeg_camera/<path:path>')
 def send_js(path):
-    return send_file('jpeg_camera\\'+ path)
+    return send_file(safe_join('jpeg_camera', path))
 
 if __name__ == "__main__":
     app.run(debug=True)
